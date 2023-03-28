@@ -1,0 +1,52 @@
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+	margin: 0;
+	background-color: rgb(32, 32, 32);
+	font-size: 20px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+input {
+	font-size: 20px;
+	width: 250px;
+	height: 50px;	
+	text-align: center;
+	margin-top: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: rgb(236, 236, 236);
+}
+input:focus {
+	outline: none;
+}
+input:focus::placeholder {
+	color: transparent;
+}
+#button {
+	width: 150px;
+	height: 52px;
+	border-radius: 3px;
+	background-color: rgb(57, 194, 110);
+	color: white;
+	font-weight: bold;
+}
+#button:active {
+    background-color: rgb(51, 173, 98);
+}
+#msg, #msgFound {
+	background-color: rgb(139, 241, 148);
+	border-radius: 20px;
+	margin: auto;
+	margin-top: 10px;
+	width: 35%;
+	padding: 10px;
+}
+#msgFound {
+	background-color: rgb(243, 127, 123);
+}
