@@ -17,7 +17,7 @@ include _ROOT_PATH.'/app/security/check.php';
 	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
 </div>
 
-<div style="width:90%; margin: 2em auto;">
+<div style="color: white; width:90%; margin: 2em auto;">
 	<p>To jest inna chroniona strona aplikacji internetowej</p>
 </div>
 

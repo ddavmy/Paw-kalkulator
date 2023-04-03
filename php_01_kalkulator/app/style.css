@@ -12,11 +12,6 @@ body {
 #header{
 	color: rgb(223, 223, 223);
 }
-hr {
-	border: none;
-	height: 3px;
-	background-color: rgb(50, 50, 50);
-}
 input {
 	font-size: 20px;
 	width: 250px;

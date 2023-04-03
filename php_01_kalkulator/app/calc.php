@@ -37,7 +37,7 @@ function validate(&$a,  &$b, &$c, &$messages) {
 	else return true;
 }
 
-function process(&$a, &$b, &$c, &$messages, &$result){
+function process(&$a, &$b, &$c, &$messages, &$result, &$math){
 	global $role;
 	$a = floatval($a);
 	$b = floatval($b);
@@ -60,20 +60,16 @@ function process(&$a, &$b, &$c, &$messages, &$result){
 	}
 }
 
-//definicja zmiennych kontrolera
 $a = null;
 $b = null;
 $c = null;
 $result = null;
+$math = null;
 $messages = array();
 
-//pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
 getParams($a, $b, $c);
-if(validate($a, $b, $c, $messages)) { // gdy brak błędów
-	process($a, $b, $c, $messages, $result);
+if(validate($a, $b, $c, $messages)) {
+	process($a, $b, $c, $messages, $result, $math);
 }
 
-// Wywołanie widoku z przekazaniem zmiennych
-// - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
-//   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';
