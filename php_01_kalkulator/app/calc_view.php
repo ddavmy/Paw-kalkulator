@@ -3,14 +3,20 @@
 <head>
 	<meta charset="utf-8">
 	<title>Kalkulator funkcji kwadratowej</title>
-	<link rel="stylesheet" href="app/style.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="<?php print(_APP_ROOT); ?>/app/style.css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
+
+<div style="width:90%; margin: 2em auto;">
+	<a href="<?php print(_APP_ROOT); ?>/app/chroniona.php" class="pure-button">Chroniona strona</a>
+	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
+</div>
 
 <div id="container">
 <h1 id="header">Postać ogólna<hr></h1>
 <div id="menu">
+
 <form action="<?php print(_APP_URL);?>/app/calc.php" method="post">
     <input type="text" name="a" placeholder="Podaj a" autocomplete="off" value="<?php if(isset($a)) {print($a);}?>" />
     <input type="text" name="b" placeholder="Podaj b" autocomplete="off" value="<?php if(isset($b)) {print($b);}?>" />
