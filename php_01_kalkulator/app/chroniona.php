@@ -7,7 +7,7 @@ include _ROOT_PATH.'/app/security/check.php';
 <head>
 	<meta charset="utf-8">
 	<title>Kalkulator funkcji kwadratowej</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="<?php print(_APP_ROOT); ?>/app/style.css">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>

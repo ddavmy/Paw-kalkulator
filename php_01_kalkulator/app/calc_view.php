@@ -5,14 +5,18 @@
 	<title>Kalkulator funkcji kwadratowej</title>
 	<link rel="stylesheet" href="<?php print(_APP_ROOT); ?>/app/style.css">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-	<!-- <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'> -->
 </head>
 <body>
 
 <div id="container"></div>
 
 <div style="width:90%; margin: 2em auto;">
-	<a href="<?php print(_APP_ROOT); ?>/app/chroniona.php" class="pure-button">Chroniona strona</a>
+
+<?php 
+	if($role == 'admin'){
+		echo '<a href='._APP_ROOT.'/app/chroniona.php class="pure-button">Chroniona strona</a>';
+	}
+?>
 	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
 </div>
 
@@ -23,7 +27,11 @@
     <input type="text" name="b" placeholder="Podaj b" autocomplete="off" value="<?php if(isset($b)) {print($b);}?>" />
     <input type="text" name="c" placeholder="Podaj c" autocomplete="off" value="<?php if(isset($c)) {print($c);}?>" />
     <input class="button" type="submit" value="Oblicz"/>
-    <a href="<?php print(_APP_URL).'/app/calc.php';?>"> <input class="button" type="button" value="Reset"/></a>
+<?php 
+	if($role == 'admin'){
+		echo '<a href='._APP_URL.'/app/calc.php><input class="button" type="button" value="Reset"/></a>';
+	}
+?>
 </form>
 </div>
 
