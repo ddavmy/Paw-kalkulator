@@ -1,0 +1,75 @@
+{extends file="../../templates/main.html"}
+
+{block name=header}{/block}
+
+{block name=footer}{/block}
+		
+{block name=content}
+
+
+<div id="wrapper">
+
+	<!-- Nav -->
+	<!-- <nav id="nav">
+		<a href="#" class="icon solid fa-home"><span>Home</span></a>
+		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
+		{if $role="admin"}
+			<a href="{$app_url}/app/chroniona.html" class="icon solid fa-user-secret"><span>Chroniona</span></a>
+		{/if}
+		<a href="{$app_url}/app/security/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+	</nav> -->
+
+	<!-- Main -->
+	<div id="main">
+
+		<article id="calculate" class="panel">
+			<header>
+				<h2>Logowanie</h2>
+			</header>
+			<form action="{$app_url}/app/calc.php" method="post">
+				<div>
+					<div class="col">
+						<div class="col-6 col-12-medium">
+                            <input type="text" name="login" autocomplete="off" placeholder="Username" value="{$form['login']}"/>
+                        </div>
+                        <div class="col-6 col-12-medium">
+                            <input type="password" name="pass" autocomplete="off" placeholder="Password" value="{$form['pass']}"/>
+                        </div>
+                        <div class="col-6">
+                            <input type="submit" value="Zaloguj" />
+                        </div>
+						<div class="col-6">
+						</div>
+					</div>
+				</div>
+			</form>
+			<div>
+				{* wyświeltenie listy błędów, jeśli istnieją *}
+				{if isset($messages)}
+					{if count($messages) > 0} 
+						<h2>Wystąpiły błędy: </h2>
+						<div id="msgFound">
+						<ol>
+						{foreach $messages as $msg}
+						{strip}
+							<li>{$msg}</li>
+						{/strip}
+						{/foreach}
+						</ol>
+						</div>
+					{/if}
+				{/if}
+
+			</div>
+		</article>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{$app_url}/assets/js/jquery.min.js"></script>
+<script src="{$app_url}/assets/js/browser.min.js"></script>
+<script src="{$app_url}/assets/js/breakpoints.min.js"></script>
+<script src="{$app_url}/assets/js/util.js"></script>
+<script src="{$app_url}/assets/js/main.js"></script>
+
+{/block}

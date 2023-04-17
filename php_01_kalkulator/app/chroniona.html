@@ -1,0 +1,50 @@
+{extends file="../templates/main.html"}
+
+{block name=header}{/block}
+
+{block name=footer}{/block}
+
+{block name=content}
+
+{if $role == 'admin'}
+
+<!-- Wrapper-->
+<div id="wrapper">
+
+	<!-- Nav -->
+	<nav id="nav">
+		<a href="#" class="icon solid fa-home"><span>Home</span></a>
+		<a href="{$app_url}/app/calc.php" class="icon solid fa-arrow-left"><span>Podstawowa</span></a>
+		<a href="{$app_url}/app/security/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+	</nav>
+
+	<!-- Main -->
+	<div id="main">
+
+
+		<!-- Me -->
+		<article id="home" class="panel intro">
+			<header>
+				<h1>Kalkualtor delty</h1>
+				<p>Jakub Linnert</p>
+				<p>Strona chroniona</p>
+				<p>Zalogowano jako: {$role}</p>
+				
+			</header>
+			<a href="https://github.com/ddavmy" class="jumplink pic">
+				<img src="{$app_url}/images/def.jpg" alt="" />
+			</a>
+		</article>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{$app_url}/assets/js/jquery.min.js"></script>
+<script src="{$app_url}/assets/js/browser.min.js"></script>
+<script src="{$app_url}/assets/js/breakpoints.min.js"></script>
+<script src="{$app_url}/assets/js/util.js"></script>
+<script src="{$app_url}/assets/js/main.js"></script>
+
+{/if}
+
+{/block}
