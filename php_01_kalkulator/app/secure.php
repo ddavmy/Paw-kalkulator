@@ -8,7 +8,8 @@ $smarty->assign('conf',$conf);
 
 $smarty->assign('app_url',$conf->app_url);
 $smarty->assign('root_path',$conf->root_path);
-$smarty->assign('page_title','Kalkulator delty');
+
+$smarty->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
 $smarty->assign('page_description','"Profesjonalne" szablonowanie oparte na bibliotece Smarty');
 $smarty->assign('page_header','Szablony Smarty zastosowane w kalkulatorze');
 

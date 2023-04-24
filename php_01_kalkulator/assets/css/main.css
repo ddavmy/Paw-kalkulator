@@ -1862,9 +1862,8 @@ input, select, textarea {
 
 		.splash {
 			background-color: rgb(32, 32, 32);
-			padding-top: 0.5em;
 			width: 100%;
-			height: inherit;
+			height: 2em;
 		}
 
 /* Wrapper */
@@ -2147,17 +2146,10 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background-color: rgb(36, 36, 36);
 		color: rgba(255, 255, 255, 0.45);
 		text-align: center;
-		padding: 0.2vh 0 0 0;
+		padding: 2em 0 0 0;
 		font-size: 0.75em;
-		max-height: 100%;
-		height: auto;
-		margin: 0;
-		/* position: fixed; */
-		max-width: 100%;
-		width: 100%;
 	}
 
 		#footer a {
@@ -2204,16 +2196,4 @@ input, select, textarea {
 		.splash {
 			position: fixed;
 			z-index: 9;
-		}
-		.sticky {
-			/* position: fixed; */
-			z-index: 9;
-			padding-top: 0.3em;
-			width: 100%;
-			height: inherit;
-		}
-		#footer {
-			max-height: fit-content;
-			height: 100%;
-			padding: -2.5;
 		}
