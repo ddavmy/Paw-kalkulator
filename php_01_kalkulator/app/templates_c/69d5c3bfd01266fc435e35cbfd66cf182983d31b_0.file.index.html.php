@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-04-24 15:38:39
+/* Smarty version 4.3.1, created on 2023-04-24 17:51:23
   from 'E:\dev\xampp\htdocs\paw\php_01_kalkulator\app\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6446865fc9d130_55408343',
+  'unifunc' => 'content_6446a57b57f144_80980754',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69d5c3bfd01266fc435e35cbfd66cf182983d31b' => 
     array (
       0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\index.html',
-      1 => 1682343006,
+      1 => 1682351429,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6446865fc9d130_55408343 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6446a57b57f144_80980754 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13778719016446865fc84381_98291743', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12312109256446a57b560356_14715557', 'header');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20361367866446865fc84d42_68851074', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3423272126446a57b560d69_37851796', 'footer');
 ?>
 
 		
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11853045226446865fc85422_74909301', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20594535306446a57b561385_81745716', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "../templates/main.html");
 }
 /* {block 'header'} */
-class Block_13778719016446865fc84381_98291743 extends Smarty_Internal_Block
+class Block_12312109256446a57b560356_14715557 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_13778719016446865fc84381_98291743',
+    0 => 'Block_12312109256446a57b560356_14715557',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +54,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_20361367866446865fc84d42_68851074 extends Smarty_Internal_Block
+class Block_3423272126446a57b560d69_37851796 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_20361367866446865fc84d42_68851074',
+    0 => 'Block_3423272126446a57b560d69_37851796',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_11853045226446865fc85422_74909301 extends Smarty_Internal_Block
+class Block_20594535306446a57b561385_81745716 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_11853045226446865fc85422_74909301',
+    0 => 'Block_20594535306446a57b561385_81745716',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -135,14 +135,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 							<input type="submit" value="Oblicz mnie! :3" />
 							<?php if (($_smarty_tpl->tpl_vars['role']->value == 'admin')) {?>
 								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-#calculate"><input class="button" type="button" value="Reset"/></a>
+#calculate"><input class="button" type="button" value="Reset x_x"/></a>
 							<?php }?>
 						</div>
 					</div>
 				</div>
 			</form>
 			<div>
-								<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isError()) {?>
+				<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isError()) {?>
 					<h2>Wystąpiły błędy: </h2>
 					<div id="msgFound">
 					<ol>
@@ -161,7 +161,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</div>
 				<?php }?>
 
-								<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isInfo()) {?>
+				<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isInfo()) {?>
 					<h4>Informacje: </h4>
 					<ol class="inf">
 					<?php

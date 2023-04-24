@@ -31,6 +31,9 @@ class LoginCtrl {
         if($this->form->pass == "") {
             $this->msgs->addError('Nie podano hasła');
         }
+
+        if($this->msgs->isError()) return false;
+
         if($this->form->login == "admin" && $this->form->pass == "admin") {
             session_start();
             $_SESSION['role'] = 'admin';
@@ -41,10 +44,8 @@ class LoginCtrl {
             $_SESSION['role'] = 'user';
             return true;
         }
-        if(empty($this->msgs->isError())){
-            $this->msgs->addError('Niepoprawny login lub hasło');
-        }
-    
+        
+        $this->msgs->addError('Niepoprawny login lub hasło');
         return ! $this->msgs->isError();
     }
 

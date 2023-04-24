@@ -4,6 +4,7 @@ require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
 require_once $conf->root_path.'/lib/Messages.class.php';
 require_once $conf->root_path.'/app/CalcForm.class.php';
 require_once $conf->root_path.'/app/CalcResult.class.php';
+require_once $conf->root_path.'/app/security/LoginCtrl.class.php';
 include $conf->root_path.'/app/security/check.php';
 
 class CalcCtrl {
@@ -55,7 +56,7 @@ class CalcCtrl {
     }
 
     public function process(){
-
+        
         $this->getparams();
         
         if ($this->validate()) {
@@ -65,21 +66,21 @@ class CalcCtrl {
             $this->msgs->addInfo('Parametry poprawne.');
             
             $this->math->math = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
-
-            if($this->math->math == 0) {
-                $pierwZero = -($this->form->b) / (2 * $this->form->a);
-                if($pierwZero == -0) { abs($pierwZero); }
-                $this->result->result = "<br />x<sub>0</sub> = ".$pierwZero;
-            }
-            elseif($this->math->math < 0) {
-                $this->result->result = '<br>brak pierwiastków.';
-            }else {
-                $pierwPierwszy = round((-$this->form->b + sqrt($this->math->math)) / (2 * $this->form->a), 2);
-                $pierwDrugi = round((-$this->form->b - sqrt($this->math->math)) / (2 * $this->form->a), 2);
-                if($pierwPierwszy == -0) { abs($pierwPierwszy); }
-                if($pierwDrugi == -0) { abs($pierwDrugi); }
-                $this->result->result = "<br />x<sub>1</sub> = ".$pierwPierwszy."<br />x<sub>2</sub> = ".$pierwDrugi;
-            }
+                if($this->math->math == 0) {
+                    $pierwZero = -($this->form->b) / (2 * $this->form->a);
+                    if($pierwZero == -0) { abs($pierwZero); }
+                    $this->result->result = "<br />x<sub>0</sub> = ".$pierwZero;
+                }
+                elseif($this->math->math < 0) {
+                    $this->result->result = '<br>brak pierwiastków.';
+                }else {
+                    $pierwPierwszy = round((-$this->form->b + sqrt($this->math->math)) / (2 * $this->form->a), 2);
+                    $pierwDrugi = round((-$this->form->b - sqrt($this->math->math)) / (2 * $this->form->a), 2);
+                    if($pierwPierwszy == -0) { abs($pierwPierwszy); }
+                    if($pierwDrugi == -0) { abs($pierwDrugi); }
+                    $this->result->result = "<br />x<sub>1</sub> = ".$pierwPierwszy."<br />x<sub>2</sub> = ".$pierwDrugi;
+                }
+            
 
             $this->msgs->addInfo('Wykonano obliczenia.');
         }

@@ -54,14 +54,13 @@
 						<div class="col-6">
 							<input type="submit" value="Oblicz mnie! :3" />
 							{if ($role == 'admin')}
-								<a href="{$conf->app_url}#calculate"><input class="button" type="button" value="Reset"/></a>
+								<a href="{$conf->app_url}#calculate"><input class="button" type="button" value="Reset x_x"/></a>
 							{/if}
 						</div>
 					</div>
 				</div>
 			</form>
 			<div>
-				{* wyświeltenie listy błędów, jeśli istnieją *}
 				{if $msgs->isError()}
 					<h2>Wystąpiły błędy: </h2>
 					<div id="msgFound">
@@ -75,7 +74,6 @@
 					</div>
 				{/if}
 
-				{* wyświeltenie listy informacji, jeśli istnieją *}
 				{if $msgs->isInfo()}
 					<h4>Informacje: </h4>
 					<ol class="inf">
