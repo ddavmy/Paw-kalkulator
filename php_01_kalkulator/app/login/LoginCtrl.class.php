@@ -2,7 +2,7 @@
 
 require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
 require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/security/LoginForm.class.php';
+require_once $conf->root_path.'/app/login/LoginForm.class.php';
 
 class LoginCtrl {
 
@@ -56,9 +56,9 @@ class LoginCtrl {
         $this->getparams();
         
         if (!$this->validate()){
-            header($conf->app_url.'/app/security/login.html');
+            header($conf->action_root.'LoginCheck');
         }else{
-            header("Location: ".$conf->app_url);
+            header("Location: ".$conf->action_root."calcCompute");
         }
 
         $this->generateView();
@@ -70,15 +70,13 @@ class LoginCtrl {
         
         $smarty = new Smarty();
         $smarty->assign('conf',$conf);
+        $smarty->assign('role',$role);
 
         $smarty->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
-        $smarty->assign('page_description','"Profesjonalne" szablonowanie oparte na bibliotece Smarty');
-        $smarty->assign('page_header','Szablony Smarty zastosowane w kalkulatorze');
 
         $smarty->assign('msgs',$this->msgs);
         $smarty->assign('form',$this->form);
-        $smarty->assign('role',$role);
 
-        $smarty->display($conf->root_path.'/app/security/login.html');
+        $smarty->display($conf->root_path.'/app/login/login.html');
     }
 }

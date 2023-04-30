@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-04-24 17:51:23
-  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulator\app\index.html' */
+/* Smarty version 4.3.1, created on 2023-04-30 17:46:46
+  from 'C:\xampp\htdocs\paw\php_01_kalkulator\app\calc\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6446a57b57f144_80980754',
+  'unifunc' => 'content_644e8d669a46e6_96090210',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '69d5c3bfd01266fc435e35cbfd66cf182983d31b' => 
+    'fae9f105dc72df04df0444f04ba4a5f822969e6a' => 
     array (
-      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\index.html',
-      1 => 1682351429,
+      0 => 'C:\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\calc\\index.html',
+      1 => 1682869596,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6446a57b57f144_80980754 (Smarty_Internal_Template $_smarty_tpl) {
+function content_644e8d669a46e6_96090210 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12312109256446a57b560356_14715557', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1523317747644e8d6698b525_40043698', 'header');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3423272126446a57b560d69_37851796', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1712109363644e8d6698c105_51882015', 'footer');
 ?>
 
 		
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20594535306446a57b561385_81745716', 'content');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, "../templates/main.html");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_211440511644e8d6698c852_61617384', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, ($_smarty_tpl->tpl_vars['conf']->value->root_path).("/templates/main.html"));
 }
 /* {block 'header'} */
-class Block_12312109256446a57b560356_14715557 extends Smarty_Internal_Block
+class Block_1523317747644e8d6698b525_40043698 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_12312109256446a57b560356_14715557',
+    0 => 'Block_1523317747644e8d6698b525_40043698',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +54,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_3423272126446a57b560d69_37851796 extends Smarty_Internal_Block
+class Block_1712109363644e8d6698c105_51882015 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_3423272126446a57b560d69_37851796',
+    0 => 'Block_1712109363644e8d6698c105_51882015',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_20594535306446a57b561385_81745716 extends Smarty_Internal_Block
+class Block_211440511644e8d6698c852_61617384 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_20594535306446a57b561385_81745716',
+    0 => 'Block_211440511644e8d6698c852_61617384',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -115,8 +115,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			<header>
 				<h2>Twoja Delta~</h2>
 			</header>
-			<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/calc.php#calculate" method="post">
+			<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+calcCompute#calculate" method="post">
 				<div>
 					<div class="col">
 						<div class="col-6 col-12-medium">

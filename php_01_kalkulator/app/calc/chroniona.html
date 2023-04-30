@@ -1,4 +1,4 @@
-{extends file="../templates/main.html"}
+{extends file=$conf->root_path|cat:"/templates/main.html"}
 
 {block name=header}{/block}
 
@@ -13,8 +13,8 @@
 	<!-- Nav -->
 	<nav id="nav">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
-		<a href="{$conf->app_url}/app/calc.php" class="icon solid fa-arrow-left"><span>Podstawowa</span></a>
-		<a href="{$conf->app_url}/app/security/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+		<a href="{$conf->action_root}calcCompute" class="icon solid fa-arrow-left"><span>Cofnij</span></a>
+		<a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
 	</nav>
 
 	<!-- Main -->

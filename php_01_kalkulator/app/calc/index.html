@@ -1,4 +1,4 @@
-{extends file="../templates/main.html"}
+{extends file=$conf->root_path|cat:"/templates/main.html"}
 
 {block name=header}{/block}
 
@@ -14,9 +14,9 @@
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
 		{if $role == 'admin'}
-		<a href="{$conf->app_url}/app/secure.php" class="icon solid fa-user-secret"><span>Chroniona</span></a>
+		<a href="{$conf->app_url}/app/calc/secure.php" class="icon solid fa-user-secret"><span>Chroniona</span></a>
 		{/if}
-		<a href="{$conf->app_url}/app/security/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+		<a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
 	</nav>
 
 	<!-- Main -->
@@ -39,7 +39,7 @@
 			<header>
 				<h2>Twoja Delta~</h2>
 			</header>
-			<form action="{$conf->app_url}/app/calc.php#calculate" method="post">
+			<form action="{$conf->action_root}calcCompute#calculate" method="post">
 				<div>
 					<div class="col">
 						<div class="col-6 col-12-medium">
@@ -54,7 +54,7 @@
 						<div class="col-6">
 							<input type="submit" value="Oblicz mnie! :3" />
 							{if ($role == 'admin')}
-								<a href="{$conf->app_url}#calculate"><input class="button" type="button" value="Reset x_x"/></a>
+								<a href="{$conf->action_root}calcReset#calculate"><input class="button" type="button" value="Reset x_x"/></a>
 							{/if}
 						</div>
 					</div>
