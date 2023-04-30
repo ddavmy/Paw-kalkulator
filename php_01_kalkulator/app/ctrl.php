@@ -19,7 +19,7 @@ switch ($action) {
 		$ctrl = new calcCtrl();
 		$ctrl->generateView();
 	break;
-	case 'action2' :
-		// zrób coś innego ...
+	case 'secureCheck' :
+		include_once $conf->root_path.'/app/calc/secure.php';
 	break;
 }

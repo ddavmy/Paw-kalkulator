@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-04-30 18:13:09
+/* Smarty version 4.3.1, created on 2023-04-30 23:05:19
   from 'C:\xampp\htdocs\paw\php_01_kalkulator\app\calc\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_644e9395367171_87380008',
+  'unifunc' => 'content_644ed80fea5694_90651279',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '29987cf603f56f2056c864ecb316321c4f9eec49' => 
     array (
       0 => 'C:\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\calc\\index.html',
-      1 => 1682871186,
+      1 => 1682888573,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_644e9395367171_87380008 (Smarty_Internal_Template $_smarty_tpl) {
+function content_644ed80fea5694_90651279 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_263362554644e939534a197_88412005', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_700697724644ed80fe6be93_50680813', 'header');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_88304885644e939534bd02_64451445', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_516322903644ed80fe6e5d3_42425969', 'footer');
 ?>
 
 		
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_443833956644e939534df17_36040662', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_429746461644ed80fe6fb32_76401027', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, ($_smarty_tpl->tpl_vars['conf']->value->root_path).("/templates/main.html"));
 }
 /* {block 'header'} */
-class Block_263362554644e939534a197_88412005 extends Smarty_Internal_Block
+class Block_700697724644ed80fe6be93_50680813 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_263362554644e939534a197_88412005',
+    0 => 'Block_700697724644ed80fe6be93_50680813',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +54,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_88304885644e939534bd02_64451445 extends Smarty_Internal_Block
+class Block_516322903644ed80fe6e5d3_42425969 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_88304885644e939534bd02_64451445',
+    0 => 'Block_516322903644ed80fe6e5d3_42425969',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_443833956644e939534df17_36040662 extends Smarty_Internal_Block
+class Block_429746461644ed80fe6fb32_76401027 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_443833956644e939534df17_36040662',
+    0 => 'Block_429746461644ed80fe6fb32_76401027',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -87,8 +87,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
 		<?php if ($_smarty_tpl->tpl_vars['role']->value == 'admin') {?>
-		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/calc/secure.php" class="icon solid fa-user-secret"><span>Chroniona</span></a>
+		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a>
 		<?php }?>
 		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
