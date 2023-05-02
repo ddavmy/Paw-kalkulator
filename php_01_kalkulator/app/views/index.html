@@ -1,4 +1,4 @@
-{extends file=$conf->root_path|cat:"/templates/main.html"}
+{extends file="main.html"}
 
 {block name=header}{/block}
 
@@ -13,10 +13,10 @@
 	<nav id="nav" class="navMenu">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
-		{if $role == 'admin'}
-		<a href="{$conf->action_root}secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a>
-		{/if}
-		<a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+		<!-- {if $role == 'admin'} -->
+		<!-- <a href="{$conf->action_root}secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a> -->
+		<!-- {/if} -->
+		<!-- <a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a> -->
 	</nav>
 
 	<!-- Main -->
@@ -30,7 +30,7 @@
 				<p>Jakub Linnert</p>
 			</header>
 			<a href="https://github.com/ddavmy" target="_blank" class="jumplink pic">
-				<img src="{$conf->app_url}/images/def.jpg" alt="" />
+				<img src="{$conf->app_url}/assets/images/def.jpg" alt="" />
 			</a>
 		</article>
 
@@ -53,9 +53,9 @@
 						</div>
 						<div class="col-6">
 							<input type="submit" value="Oblicz mnie! :3" />
-							{if ($role == 'admin')}
+							<!-- {if ($role == 'admin')}
 								<a href="{$conf->action_root}calcReset#calculate"><input class="button" type="button" value="Reset x_x"/></a>
-							{/if}
+							{/if} -->
 						</div>
 					</div>
 				</div>

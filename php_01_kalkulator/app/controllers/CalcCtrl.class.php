@@ -1,30 +1,31 @@
 <?php
 
-require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
-require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/calc/CalcForm.class.php';
-require_once $conf->root_path.'/app/calc/CalcResult.class.php';
-require_once $conf->root_path.'/app/login/LoginCtrl.class.php';
-include $conf->root_path.'/app/login/check.php';
+// require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
+// require_once $conf->root_path.'/lib/Messages.class.php';
+// require_once $conf->root_path.'/app/calc/CalcForm.class.php';
+// require_once $conf->root_path.'/app/calc/CalcResult.class.php';
+// require_once 'LoginCtrl.class.php';
+// include 'LoginCheck.php';
+
+require_once 'CalcForm.class.php';
+require_once 'CalcResult.class.php';
 
 class CalcCtrl {
 
-    private $msgs;
     private $form;
     private $result;
     private $math;
 
     public function __construct(){
-        $this->msgs = new Messages();
 		$this->form = new CalcForm();
 		$this->result = new CalcResult();
 		$this->math = new CalcResult();
     }
 
     public function getParams(){
-        $this->form->a = isset($_REQUEST['a']) ? $_REQUEST['a'] : null;
-        $this->form->b = isset($_REQUEST['b']) ? $_REQUEST['b'] : null;
-        $this->form->c = isset($_REQUEST['c']) ? $_REQUEST['c'] : null;
+        $this->form->a = getFromRequest('a');
+        $this->form->b = getFromRequest('b');
+        $this->form->c = getFromRequest('c');
     }
 
     public function validate(){
@@ -34,25 +35,25 @@ class CalcCtrl {
         }
 
         if($this->form->a == 0) {
-            $this->msgs->addError('To nie jest funkcja kwadratowa!');
+            getMessages()->addError('To nie jest funkcja kwadratowa!');
         }
         if($this->form->a == "") {
-            $this->msgs->addError('Nie podano a');
+            getMessages()->addError('Nie podano a');
         } elseif(!is_numeric($this->form->a)) {
-            $this->msgs->addError('Pierwsza wartość nie jest liczbą!');
+            getMessages()->addError('Pierwsza wartość nie jest liczbą!');
         }
         if($this->form->b == "") {
-            $this->msgs->addError('Nie podano b');
+            getMessages()->addError('Nie podano b');
         } elseif(!is_numeric($this->form->b)) {
-            $this->msgs->addError('Druga wartość nie jest liczbą!');
+            getMessages()->addError('Druga wartość nie jest liczbą!');
         }
         if($this->form->c == "") {
-            $this->msgs->addError('Nie podano c');
+            getMessages()->addError('Nie podano c');
         } elseif(!is_numeric($this->form->c)) {
-            $this->msgs->addError('Trzecia wartość nie jest liczbą!');
+            getMessages()->addError('Trzecia wartość nie jest liczbą!');
         }
     
-        return ! $this->msgs->isError();
+        return ! getMessages()->isError();
     }
 
     public function process(){
@@ -63,7 +64,7 @@ class CalcCtrl {
             $this->form->a = floatval($this->form->a);
             $this->form->b = floatval($this->form->b);
             $this->form->c = floatval($this->form->c);
-            $this->msgs->addInfo('Parametry poprawne.');
+            getMessages()->addInfo('Parametry poprawne.');
             
             $this->math->math = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
                 if($this->math->math == 0) {
@@ -82,26 +83,21 @@ class CalcCtrl {
                 }
             
 
-            $this->msgs->addInfo('Wykonano obliczenia.');
+            getMessages()->addInfo('Wykonano obliczenia.');
         }
 
         $this->generateView();
     }
 
     public function generateView(){
-        global $conf, $role;
-        
-        $smarty = new Smarty();
-        $smarty->assign('conf',$conf);
-        $smarty->assign('role',$role);
+        global $role;
 
-        $smarty->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
+        getSmarty()->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
         
-        $smarty->assign('msgs',$this->msgs);
-        $smarty->assign('form',$this->form);
-        $smarty->assign('res',$this->result);
-        $smarty->assign('math',$this->math);
-
-        $smarty->display($conf->root_path.'/app/calc/index.html');
+        getSmarty()->assign('form',$this->form);
+        getSmarty()->assign('res',$this->result);
+        getSmarty()->assign('math',$this->math);
+        
+        getSmarty()->display('index.html');
     }
 }

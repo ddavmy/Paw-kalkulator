@@ -1,8 +1,8 @@
 <?php
 
-require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
-require_once $conf->root_path.'/lib/Messages.class.php';
-require_once $conf->root_path.'/app/login/LoginForm.class.php';
+// require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
+// require_once $conf->root_path.'/lib/Messages.class.php';
+require_once 'LoginForm.class.php';
 
 class LoginCtrl {
 
@@ -77,6 +77,6 @@ class LoginCtrl {
         $smarty->assign('msgs',$this->msgs);
         $smarty->assign('form',$this->form);
 
-        $smarty->display($conf->root_path.'/app/login/login.html');
+        getSmarty()->display('login.html');
     }
 }
