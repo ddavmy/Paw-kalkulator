@@ -3,6 +3,7 @@
 class Messages {
 	private $errors = array ();
 	private $infos = array ();
+	private $wyniki = array ();
 	private $num = 0;
 
 	public function addError($message) {
@@ -12,6 +13,11 @@ class Messages {
 
 	public function addInfo($message) {
 		$this->infos[] = $message;
+		$this->num ++;
+	}
+	
+	public function addWynik($message) {
+		$this->wyniki[] = $message;
 		$this->num ++;
 	}
 
@@ -26,6 +32,10 @@ class Messages {
 	public function isInfo() {
 		return count ( $this->infos ) > 0;
 	}
+
+	public function isWynik() {
+		return count ( $this->wyniki ) > 0;
+	}
 	
 	public function getErrors() {
 		return $this->errors;
@@ -34,10 +44,15 @@ class Messages {
 	public function getInfos() {
 		return $this->infos;
 	}
+
+	public function getWyniki() {
+		return $this->wyniki;
+	}
 	
 	public function clear() {
 		$this->errors = array ();
 		$this->infos = array ();
+		$this->wyniki = array ();
 		$this->num = 0;
 	}
 }

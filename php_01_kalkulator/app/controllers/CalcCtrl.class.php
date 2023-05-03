@@ -9,12 +9,10 @@ class CalcCtrl {
 
     private $form;
     private $result;
-    private $math;
 
     public function __construct(){
 		$this->form = new CalcForm();
 		$this->result = new CalcResult();
-		$this->math = new CalcResult();
     }
 
     public function getParams(){
@@ -51,41 +49,50 @@ class CalcCtrl {
         return ! getMessages()->isError();
     }
 
-    public function process(){
+    public function action_calcCompute(){
         
         $this->getparams();
         
         if ($this->validate()) {
+
             $this->form->a = floatval($this->form->a);
             $this->form->b = floatval($this->form->b);
             $this->form->c = floatval($this->form->c);
             getMessages()->addInfo('Parametry poprawne.');
             
-            $this->math->math = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
-                if($this->math->math == 0) {
-                    $pierwZero = -($this->form->b) / (2 * $this->form->a);
-                    if($pierwZero == -0) {abs($pierwZero);}
-                    $this->result->result = "<br />x<sub>0</sub> = ".$pierwZero;
+            $this->result->result = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
+            getMessages()->addWynik('Δ = '.$this->result->result);
+
+                if($this->result->result == 0) {
+                    $this->result->result = -($this->form->b) / (2 * $this->form->a);
+                    if($this->result->result == -0) {abs($this->result->result);}
+                    getMessages()->addWynik('x<sub>0</sub> = '.$this->result->result);
                 }
-                elseif($this->math->math < 0) {
-                    $this->result->result = '<br>brak pierwiastków.';
+                else if($this->result->result < 0) {
+                    getMessages()->addWynik('Delta ujemna, brak pierwiastków.');
                 }else {
-                    $pierwPierwszy = round((-$this->form->b + sqrt($this->math->math)) / (2 * $this->form->a), 2);
-                    $pierwDrugi = round((-$this->form->b - sqrt($this->math->math)) / (2 * $this->form->a), 2);
-                    if($pierwPierwszy == -0) {abs($pierwPierwszy);}
-                    if($pierwDrugi == -0) {abs($pierwDrugi);}
-                    $this->result->result = "<br />x<sub>1</sub> = ".$pierwPierwszy."<br />x<sub>2</sub> = ".$pierwDrugi;
+                    $delta = $this->result->result;
+
+                    $this->result->result = round((-$this->form->b + sqrt($delta)) / (2 * $this->form->a), 2);
+                    if($this->result->result == -0) {abs($this->result->result);}
+                    getMessages()->addWynik('x<sub>1</sub> = '.$this->result->result);
+
+                    $this->result->result = round((-$this->form->b - sqrt($delta)) / (2 * $this->form->a), 2);
+                    if($this->result->result == -0) {abs($this->result->result);}
+                    getMessages()->addWynik('x<sub>2</sub> = '.$this->result->result);
                 }
             
-
             getMessages()->addInfo('Wykonano obliczenia.');
         }
-
+        $this->generateView();
     }
 
+	public function action_calcShow(){
+		getMessages()->addInfo('Witaj w kalkulatorze');
+		$this->generateView();
+	}
+    
     public function generateView(){
-
-        $this->process();
 
 		getSmarty()->assign('user',unserialize($_SESSION['user']));
         
@@ -93,17 +100,15 @@ class CalcCtrl {
         
         getSmarty()->assign('form',$this->form);
         getSmarty()->assign('res',$this->result);
-        getSmarty()->assign('math',$this->math);
         
         getSmarty()->display('index.html');
     }
 
-    public function chronionaView(){
-
-        getSmarty()->assign('user',unserialize($_SESSION['user']));
+    public function action_chronionaView(){
+		getSmarty()->assign('user',unserialize($_SESSION['user']));
 
         getSmarty()->assign('page_title','Twoja Tajemnicza Chroniona Strona o_o');
         
         getSmarty()->display('chroniona.html');
-    }
+	}
 }

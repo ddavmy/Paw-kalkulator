@@ -24,16 +24,7 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	}
-
-	#msg, #msgFound{
-		font-size: 24px;
-		line-height: 3.5vh;
-		padding: 10px;
-		max-height: 5em;
-	}
-
-	
+	}	
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -2196,4 +2187,12 @@ input, select, textarea {
 		html {
 			overflow:hidden;
 			height: 100%;
+		}
+		ol, li {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		  }
+		.wyn {
+			color:#AAAAAA;
 		}

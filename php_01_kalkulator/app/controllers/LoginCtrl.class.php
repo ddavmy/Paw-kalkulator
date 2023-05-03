@@ -54,7 +54,7 @@ class LoginCtrl{
 		return !getMessages()->isError();
 	}
 	
-	public function doLogin(){
+	public function action_login(){
 
 		$this->getParams();
 		
@@ -66,7 +66,7 @@ class LoginCtrl{
 		
 	}
 	
-	public function doLogout(){
+	public function action_logout(){
 		session_destroy();
 
 		getMessages()->addInfo('Poprawnie wylogowano z systemu');
@@ -76,7 +76,7 @@ class LoginCtrl{
 	
 	public function generateView(){
 		
-		getSmarty()->assign('page_title','Twoja wymarzona strona logowania ^^');
+		getSmarty()->assign('page_title','Twoja wymarzona strona logowania ^_^');
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->display('Login.html');		
 	}

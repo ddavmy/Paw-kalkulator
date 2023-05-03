@@ -14,7 +14,7 @@
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
 		{if $user->role == 'admin'}
-			<a href="{$conf->action_url}secureSite" class="icon solid fa-user-secret"><span>Chroniona</span></a>
+			<a href="{$conf->action_url}chronionaView" class="icon solid fa-user-secret"><span>Chroniona</span></a>
 		{/if}
 		<a href="{$conf->action_url}logout" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
 	</nav>
@@ -65,11 +65,17 @@
 			<div>
 				{include file='messages.html'}
 
-				{if (isset($res->result))}
-					<h2>Wynik:</h2>
-					<div id="msg">
-						Δ = {$math->math}{$res->result}
-					</div>
+				{if $msgs->isWynik()}
+				<h3>Wynik:</h3>
+				<div>
+					<ol class="wyn">
+					{foreach $msgs->getWyniki() as $wyn}
+					{strip}
+						<li>{$wyn}</li>
+					{/strip}
+					{/foreach}
+					</ol>
+				</div>
 				{/if}
 
 			</div>

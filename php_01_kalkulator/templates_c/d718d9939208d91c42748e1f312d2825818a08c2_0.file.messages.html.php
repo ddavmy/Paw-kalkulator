@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-03 19:17:39
+/* Smarty version 4.3.1, created on 2023-05-03 20:36:33
   from 'E:\dev\xampp\htdocs\paw\php_01_kalkulator\app\views\templates\messages.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64529733289e22_20350443',
+  'unifunc' => 'content_6452a9b1a0c6e0_67938401',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64529733289e22_20350443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6452a9b1a0c6e0_67938401 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['msgs']->value->isError()) {?>
 <h2>Wystąpiły błędy: </h2>
 <div id="msgFound">

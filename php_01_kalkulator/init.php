@@ -4,11 +4,11 @@ require_once 'core/Config.class.php';
 $conf = new core\Config();
 require_once 'config.php';
 
-function &getConf(){ global $conf; return $conf; }
+function &getConf(){global $conf; return $conf;}
 
 require_once 'core/Messages.class.php';
 $msgs = new core\Messages();
-function &getMessages(){ global $msgs; return $msgs; }
+function &getMessages(){global $msgs; return $msgs;}
 
 $smarty = null;	
 function &getSmarty(){
@@ -28,13 +28,14 @@ function &getSmarty(){
 
 require_once 'core/ClassLoader.class.php';
 $cloader = new core\ClassLoader();
-function &getLoader() {
-	global $cloader;
-	return $cloader;
-}
+function &getLoader() {global $cloader; return $cloader;}
+
+require_once 'core/Router.class.php';
+$router = new core\Router();
+function &getRouter(): core\Router {global $router; return $router;}
 
 require_once 'core/functions.php';
 
 session_start();
 $conf->roles = isset($_SESSION['_roles']) ? unserialize($_SESSION['_roles']) : array();
-$action = getFromRequest('action');
+$router->setAction( getFromRequest('action') );
