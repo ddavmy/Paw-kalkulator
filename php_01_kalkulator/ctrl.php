@@ -1,34 +1,17 @@
 <?php
 require_once 'init.php';
 
+getConf()->login_action = 'login';
+
 switch ($action) {
 	default :
-		include 'check.php';
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->generateView();
-	break;
-	case 'login' :
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogin();
-	break;
-	case 'calcCompute' :
-		include 'check.php';
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->generateView();
-	break;
-	case 'secureSite' :
-		include 'check.php';
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->chronionaView();
-	break;
-	case 'calcReset' :
-		include 'check.php';
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->generateView();
-	break;
-	case 'logout' :
-		include 'check.php';
-		$ctrl = new app\controllers\LoginCtrl();
-		$ctrl->doLogout();
-	break;
+		control('app\\controllers', 'CalcCtrl',		'generateView', ['user','admin']);
+	case 'login': 
+		control('app\\controllers', 'LoginCtrl',	'doLogin');
+	case 'calcCompute' : 
+		control(null, 'CalcCtrl',	'generateView',		['user','admin']);
+	case 'secureSite' : 
+		control(null, 'CalcCtrl',	'chronionaView',		['user','admin']);
+	case 'logout' : 
+		control(null, 'LoginCtrl',	'doLogout',		['user','admin']);
 }

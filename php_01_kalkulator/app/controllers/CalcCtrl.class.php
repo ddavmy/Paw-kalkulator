@@ -64,7 +64,7 @@ class CalcCtrl {
             $this->math->math = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
                 if($this->math->math == 0) {
                     $pierwZero = -($this->form->b) / (2 * $this->form->a);
-                    if($pierwZero == -0) { abs($pierwZero); }
+                    if($pierwZero == -0) {abs($pierwZero);}
                     $this->result->result = "<br />x<sub>0</sub> = ".$pierwZero;
                 }
                 elseif($this->math->math < 0) {
@@ -72,8 +72,8 @@ class CalcCtrl {
                 }else {
                     $pierwPierwszy = round((-$this->form->b + sqrt($this->math->math)) / (2 * $this->form->a), 2);
                     $pierwDrugi = round((-$this->form->b - sqrt($this->math->math)) / (2 * $this->form->a), 2);
-                    if($pierwPierwszy == -0) { abs($pierwPierwszy); }
-                    if($pierwDrugi == -0) { abs($pierwDrugi); }
+                    if($pierwPierwszy == -0) {abs($pierwPierwszy);}
+                    if($pierwDrugi == -0) {abs($pierwDrugi);}
                     $this->result->result = "<br />x<sub>1</sub> = ".$pierwPierwszy."<br />x<sub>2</sub> = ".$pierwDrugi;
                 }
             
@@ -84,11 +84,10 @@ class CalcCtrl {
     }
 
     public function generateView(){
-        global $user;
 
         $this->process();
 
-		getSmarty()->assign('user',$user);
+		getSmarty()->assign('user',unserialize($_SESSION['user']));
         
         getSmarty()->assign('page_title','Twój Ulubiony Kalkulator ^-^');
         
@@ -100,9 +99,8 @@ class CalcCtrl {
     }
 
     public function chronionaView(){
-        global $user;
 
-        getSmarty()->assign('user',$user);
+        getSmarty()->assign('user',unserialize($_SESSION['user']));
 
         getSmarty()->assign('page_title','Twoja Tajemnicza Chroniona Strona o_o');
         
