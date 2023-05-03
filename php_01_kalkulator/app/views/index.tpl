@@ -1,4 +1,4 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 
 {block name=header}{/block}
 
@@ -13,10 +13,10 @@
 	<nav id="nav" class="navMenu">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
-		<!-- {if $role == 'admin'} -->
-		<!-- <a href="{$conf->action_root}secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a> -->
-		<!-- {/if} -->
-		<!-- <a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a> -->
+		<!-- {if $role == 'admin'}
+		<a href="{$conf->action_root}secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a>
+		{/if} -->
+		<!-- <a href="{$conf->action_root}" class="icon solid fa-fingerprint"><span>Wyloguj</span></a> -->
 	</nav>
 
 	<!-- Main -->
@@ -94,8 +94,6 @@
 
 			</div>
 		</article>
-	</div>
-</div>
 
 <!-- Scripts -->
 <script src="{$conf->app_url}/assets/js/jquery.min.js"></script>

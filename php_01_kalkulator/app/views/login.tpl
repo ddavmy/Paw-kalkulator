@@ -1,4 +1,4 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 
 {block name=header}{/block}
 
@@ -16,7 +16,7 @@
 			<header>
 				<h2>Logowanie</h2>
 			</header>
-			<form action="{$conf->action_root}LoginCheck" method="post">
+			<form action="{$conf->action_root}Access" method="post">
 				<div>
 					<div class="col">
 						<div class="col-6 col-12-medium">

@@ -1,22 +1,18 @@
 <?php
 
-// require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
-// require_once $conf->root_path.'/lib/Messages.class.php';
 require_once 'LoginForm.class.php';
 
 class LoginCtrl {
 
-    private $msgs;
     private $form;
 
     public function __construct(){
-        $this->msgs = new Messages();
         $this->form = new LoginForm();
     }
 
     public function getParams(){
-        $this->form->login = isset($_REQUEST['login']) ? $_REQUEST['login'] : null;
-        $this->form->pass = isset($_REQUEST['pass']) ? $_REQUEST['pass'] : null;
+        $this->form->login = getFromRequest('login');
+        $this->form->pass = getFromRequest('pass');
     }
 
     public function validate(){
@@ -26,13 +22,13 @@ class LoginCtrl {
         }
 
         if($this->form->login == "") {
-            $this->msgs->addError('Nie podano loginu');
+            getMessages()->addError('Nie podano loginu');
         }
         if($this->form->pass == "") {
-            $this->msgs->addError('Nie podano hasła');
+            getMessages()->addError('Nie podano hasła');
         }
 
-        if($this->msgs->isError()) return false;
+        if(getMessages()->isError()) return false;
 
         if($this->form->login == "admin" && $this->form->pass == "admin") {
             session_start();
@@ -45,38 +41,30 @@ class LoginCtrl {
             return true;
         }
         
-        $this->msgs->addError('Niepoprawny login lub hasło');
-        return ! $this->msgs->isError();
+        getMessages()->addError('Niepoprawny login lub hasło');
+        return ! getMessages()->isError();
     }
 
     public function process(){
-
-        global $conf;
-
+        
         $this->getparams();
         
         if (!$this->validate()){
-            header($conf->action_root.'LoginCheck');
+            header(getConf()->app_url.'/app/controllers/login.html');
         }else{
-            header("Location: ".$conf->action_root."calcCompute");
+            header("Location: ".getConf()->action_root.'calcCompute');
         }
 
         $this->generateView();
     }
     
     public function generateView(){
-
-        global $conf, $role;
+        global $role;
+        getSmarty()->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
         
-        $smarty = new Smarty();
-        $smarty->assign('conf',$conf);
-        $smarty->assign('role',$role);
-
-        $smarty->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
-
-        $smarty->assign('msgs',$this->msgs);
-        $smarty->assign('form',$this->form);
-
+        getSmarty()->assign('form',$this->form);
+        getSmarty()->assign('role',$role);
+        
         getSmarty()->display('login.html');
     }
 }

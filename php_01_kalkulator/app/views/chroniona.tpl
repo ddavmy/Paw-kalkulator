@@ -1,4 +1,4 @@
-{extends file="main.html"}
+{extends file="main.tpl"}
 
 {block name=header}{/block}
 
@@ -14,7 +14,7 @@
 	<nav id="nav">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="{$conf->action_root}calcCompute" class="icon solid fa-arrow-left"><span>Cofnij</span></a>
-		<a href="{$conf->app_url}/app/login/logout.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+		<a href="{$conf->app_url}/app/controllers/logoutCtrl.php" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
 	</nav>
 
 	<!-- Main -->
@@ -31,7 +31,7 @@
 				
 			</header>
 			<a href="https://github.com/ddavmy" class="jumplink pic">
-				<img src="{$conf->app_url}/images/def.jpg" alt="" />
+				<img src="{$conf->app_url}/assets/images/def.jpg" alt="" />
 			</a>
 		</article>
 	</div>

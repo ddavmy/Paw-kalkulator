@@ -1,14 +1,12 @@
 <?php
 
-// require_once $conf->root_path.'/lib/smarty/libs/Smarty.class.php';
-// require_once $conf->root_path.'/lib/Messages.class.php';
-// require_once $conf->root_path.'/app/calc/CalcForm.class.php';
-// require_once $conf->root_path.'/app/calc/CalcResult.class.php';
-// require_once 'LoginCtrl.class.php';
-// include 'LoginCheck.php';
+// require_once 'CalcForm.class.php';
+// require_once 'CalcResult.class.php';
 
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+namespace app\controllers;
+
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
 
 class CalcCtrl {
 
@@ -90,7 +88,6 @@ class CalcCtrl {
     }
 
     public function generateView(){
-        global $role;
 
         getSmarty()->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
         
@@ -98,6 +95,6 @@ class CalcCtrl {
         getSmarty()->assign('res',$this->result);
         getSmarty()->assign('math',$this->math);
         
-        getSmarty()->display('index.html');
+        getSmarty()->display('index.tpl');
     }
 }

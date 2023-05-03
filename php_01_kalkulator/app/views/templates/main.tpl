@@ -10,7 +10,7 @@
 	<head>
 		<title>Kalkualtor delty</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no" />
 		<link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="{$conf->app_url}/assets/css/noscript.css" /></noscript>
 	</head>
@@ -40,6 +40,7 @@
         </ul>
     </div>
 </div>
-
+</div>
+</div>
 </body>
 </html>

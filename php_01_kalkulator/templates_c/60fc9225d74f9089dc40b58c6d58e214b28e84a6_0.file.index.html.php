@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-02 18:37:34
-  from 'C:\xampp\htdocs\paw\php_01_kalkulator\app\views\index.html' */
+/* Smarty version 4.3.1, created on 2023-05-03 10:52:59
+  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulatorTEST\app\views\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_64513c4ebea8e8_05989931',
+  'unifunc' => 'content_645220eb0268a4_87278118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f5588c596c358fa732ea033a44e8007a076cff9e' => 
+    '60fc9225d74f9089dc40b58c6d58e214b28e84a6' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\views\\index.html',
-      1 => 1683045445,
+      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulatorTEST\\app\\views\\index.html',
+      1 => 1683103966,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64513c4ebea8e8_05989931 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645220eb0268a4_87278118 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10324429564513c4ebb0fd6_58506093', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1481830160645220eb00dd58_22797318', 'header');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_126246560364513c4ebb4300_10899869', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_682542425645220eb00e905_52025734', 'footer');
 ?>
 
 		
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_60778836364513c4ebb5567_09881887', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_142846073645220eb00ef55_80125625', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.html");
 }
 /* {block 'header'} */
-class Block_10324429564513c4ebb0fd6_58506093 extends Smarty_Internal_Block
+class Block_1481830160645220eb00dd58_22797318 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_10324429564513c4ebb0fd6_58506093',
+    0 => 'Block_1481830160645220eb00dd58_22797318',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +54,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_126246560364513c4ebb4300_10899869 extends Smarty_Internal_Block
+class Block_682542425645220eb00e905_52025734 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_126246560364513c4ebb4300_10899869',
+    0 => 'Block_682542425645220eb00e905_52025734',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,12 +67,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_60778836364513c4ebb5567_09881887 extends Smarty_Internal_Block
+class Block_142846073645220eb00ef55_80125625 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_60778836364513c4ebb5567_09881887',
+    0 => 'Block_142846073645220eb00ef55_80125625',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -86,12 +86,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 	<nav id="nav" class="navMenu">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
-		<?php if (getRole() == 'admin') {?>
+		<!-- <?php if ($_smarty_tpl->tpl_vars['role']->value == 'admin') {?>
 		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 secureCheck" class="icon solid fa-user-secret"><span>Chroniona</span></a>
-		<?php }?>
-		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+		<?php }?> -->
+		<!-- <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+" class="icon solid fa-fingerprint"><span>Wyloguj</span></a> -->
 	</nav>
 
 	<!-- Main -->
@@ -133,10 +133,10 @@ calcCompute#calculate" method="post">
 						</div>
 						<div class="col-6">
 							<input type="submit" value="Oblicz mnie! :3" />
-							<?php if (($_smarty_tpl->tpl_vars['role']->value == 'admin')) {?>
+							<!-- <?php if (($_smarty_tpl->tpl_vars['role']->value == 'admin')) {?>
 								<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 calcReset#calculate"><input class="button" type="button" value="Reset x_x"/></a>
-							<?php }?>
+							<?php }?> -->
 						</div>
 					</div>
 				</div>
@@ -189,8 +189,6 @@ echo $_smarty_tpl->tpl_vars['res']->value->result;?>
 
 			</div>
 		</article>
-	</div>
-</div>
 
 <!-- Scripts -->
 <?php echo '<script'; ?>

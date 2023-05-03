@@ -1,4 +1,5 @@
-<?php
+<?php namespace core;
+
 class Messages {
 	private $errors = array ();
 	private $infos = array ();
@@ -6,7 +7,7 @@ class Messages {
 
 	public function addError($message) {
 		$this->errors[] = $message;
-		$this->num++;
+		$this->num ++;
 	}
 
 	public function addInfo($message) {
@@ -38,6 +39,5 @@ class Messages {
 		$this->errors = array ();
 		$this->infos = array ();
 		$this->num = 0;
-		$this->error = false;
 	}
 }
