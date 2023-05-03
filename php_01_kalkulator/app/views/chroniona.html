@@ -1,0 +1,39 @@
+{extends file="main.html"}
+
+{block name=header}{/block}
+
+{block name=footer}{/block}
+		
+{block name=content}
+
+<!-- Wrapper-->
+<div id="wrapper">
+
+	<!-- Nav -->
+	<nav id="nav" class="navMenu">
+		<a href="#" class="icon solid fa-home"><span>Home</span></a>
+		<a href="{$conf->app_url}" class="icon solid fa-arrow-left"><span>Zwykła</span></a>
+		<a href="{$conf->action_url}logout" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
+	</nav>
+
+	<!-- Main -->
+	<div id="main">
+
+
+		<!-- Me -->
+		<article id="home" class="panel intro">
+			<header>
+				<h1>Kalkulator delty</h1>
+				<h1>Strona chroniona</h1>
+				<p>Jakub Linnert</p>
+				<p>użytkownik: {$user->login}</p>
+				<p>rola: {$user->role}</p>
+			</header>
+			<a href="https://github.com/ddavmy" target="_blank" class="jumplink pic">
+				<img src="{$conf->app_url}/assets/images/def.jpg" alt="" />
+			</a>
+		</article>
+
+		{include file='scripts.html'}
+
+{/block}

@@ -1,4 +1,4 @@
-{extends file="main.tpl"}
+{extends file="main.html"}
 
 {block name=header}{/block}
 
@@ -12,11 +12,11 @@
 	<!-- Main -->
 	<div id="main">
 
-		<article id="calculate" class="panel">
+		<article id="login" class="panel">
 			<header>
 				<h2>Logowanie</h2>
 			</header>
-			<form action="{$conf->action_root}Access" method="post">
+			<form action="{$conf->action_url}login" method="post">
 				<div>
 					<div class="col">
 						<div class="col-6 col-12-medium">
@@ -34,29 +34,12 @@
 				</div>
 			</form>
 			<div>
-				{if $msgs->isError()}
-					<h2>Wystąpiły błędy: </h2>
-					<div id="msgFound">
-					<ol>
-					{foreach $msgs->getErrors() as $err}
-					{strip}
-						<li>{$err}</li>
-					{/strip}
-					{/foreach}
-					</ol>
-					</div>
-				{/if}
-
+				{include file='messages.html'}
 			</div>
 		</article>
 	</div>
 </div>
 
-<!-- Scripts -->
-<script src="{$conf->app_url}/assets/js/jquery.min.js"></script>
-<script src="{$conf->app_url}/assets/js/browser.min.js"></script>
-<script src="{$conf->app_url}/assets/js/breakpoints.min.js"></script>
-<script src="{$conf->app_url}/assets/js/util.js"></script>
-<script src="{$conf->app_url}/assets/js/main.js"></script>
+{include file='scripts.html'}
 
 {/block}

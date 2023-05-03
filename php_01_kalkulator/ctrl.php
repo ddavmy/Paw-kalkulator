@@ -3,30 +3,32 @@ require_once 'init.php';
 
 switch ($action) {
 	default :
-		// include_once $conf->root_path.'/app/controllers/CalcCtrl.class.php';
+		include 'check.php';
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->generateView();
-
-		// include_once $conf->root_path.'/app/controllers/LoginCtrl.class.php';
-		// $ctrl = new LoginCtrl();
-		// $ctrl->generateView();
+	break;
+	case 'login' :
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogin();
 	break;
 	case 'calcCompute' :
-		// include_once $conf->root_path.'/app/controllers/CalcCtrl.class.php';
-		$ctrl = new app\controllers\CalcCtrl();
-		$ctrl->process();
-	break;
-	case 'calcReset' :
-		// include_once $conf->root_path.'/app/controllers/CalcCtrl.class.php';
+		include 'check.php';
 		$ctrl = new app\controllers\CalcCtrl();
 		$ctrl->generateView();
 	break;
-	case 'secureCheck' :
-		// include_once $conf->root_path.'/app/controllers/ChronionaCtrl.class.php';
+	case 'secureSite' :
+		include 'check.php';
+		$ctrl = new app\controllers\CalcCtrl();
+		$ctrl->chronionaView();
 	break;
-	case 'Access' :
-		// include_once $conf->root_path.'/app/controllers/LoginCtrl.class.php';
-		// $ctrl = new app\controllers\LoginCtrl();
-		// $ctrl->process();
+	case 'calcReset' :
+		include 'check.php';
+		$ctrl = new app\controllers\CalcCtrl();
+		$ctrl->generateView();
+	break;
+	case 'logout' :
+		include 'check.php';
+		$ctrl = new app\controllers\LoginCtrl();
+		$ctrl->doLogout();
 	break;
 }

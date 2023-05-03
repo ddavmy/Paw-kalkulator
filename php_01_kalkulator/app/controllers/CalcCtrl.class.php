@@ -1,8 +1,5 @@
 <?php
 
-// require_once 'CalcForm.class.php';
-// require_once 'CalcResult.class.php';
-
 namespace app\controllers;
 
 use app\forms\CalcForm;
@@ -28,7 +25,7 @@ class CalcCtrl {
 
     public function validate(){
 
-        if(!(isset($this->form->a) && isset($this->form->b) && isset($this->form->c))) {
+        if(!(isset($this->form->a) && isset($this->form->b) && isset($this->form->c))){
             return false;
         }
 
@@ -84,17 +81,31 @@ class CalcCtrl {
             getMessages()->addInfo('Wykonano obliczenia.');
         }
 
-        $this->generateView();
     }
 
     public function generateView(){
+        global $user;
 
-        getSmarty()->assign('page_title','Twoj Ulubiony Kalkulator ^-^');
+        $this->process();
+
+		getSmarty()->assign('user',$user);
+        
+        getSmarty()->assign('page_title','Twój Ulubiony Kalkulator ^-^');
         
         getSmarty()->assign('form',$this->form);
         getSmarty()->assign('res',$this->result);
         getSmarty()->assign('math',$this->math);
         
-        getSmarty()->display('index.tpl');
+        getSmarty()->display('index.html');
+    }
+
+    public function chronionaView(){
+        global $user;
+
+        getSmarty()->assign('user',$user);
+
+        getSmarty()->assign('page_title','Twoja Tajemnicza Chroniona Strona o_o');
+        
+        getSmarty()->display('chroniona.html');
     }
 }
