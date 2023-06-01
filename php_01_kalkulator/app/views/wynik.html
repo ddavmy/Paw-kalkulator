@@ -1,0 +1,34 @@
+<table id="tab_people" class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>Delta</th>
+            <th>x<sub>1</sub></th>
+            <th>x<sub>2</sub></th>
+            {if inRole('admin')}
+                <th>Opcje</th>
+            {/if}
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $record as $r}
+    {strip}
+        <tr>
+            <td>{$r["a"]}</td>
+            <td>{$r["b"]}</td>
+            <td>{$r["c"]}</td>
+            <td>{$r["delta"]}</td>
+            <td>{$r["pierwPierwszy"]}</td>
+            <td>{$r["pierwDrugi"]}</td>
+            {if inRole('admin')}
+            <td>
+                <a id="recordDelete" href="{$conf->action_url}wynikDelete&id={$r['idwynik']}">Usuń</a>
+            </td>
+            {/if}
+        </tr>
+    {/strip}
+    {/foreach}
+    </tbody>
+    </table>

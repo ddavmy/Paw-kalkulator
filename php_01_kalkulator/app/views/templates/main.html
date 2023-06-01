@@ -16,31 +16,33 @@
 	</head>
 	<body class="is-preload">
 
-{block name=header}{/block}
-<nav id="nav">
-    <div class="splash-container">
-        <div class="splash">
-            <h3 class="splash-head">{$page_title|default:"Tytuł domyślny"}</h3>
-            <p class="splash-subhead"></p>
+            <!-- {block name=header}{/block} -->
+            <nav id="nav">
+                <div class="splash-container">
+                    <div class="splash">
+                        <h3 class="splash-head">{$page_title|default:"Tytuł domyślny"}</h3>
+                        <p class="splash-subhead"></p>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content-wrapper">
+                <div id="app_content" class="content">
+                {block name=content} Domyślna treść zawartości .... {/block}
+                
+                </div>
+                
+                <!-- {block name=footer}{/block} -->
+                <div id="footer">
+                    <ul class="copyright" class="sticky">
+                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        <li>Wykonał: Jakub Linnert</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
-</nav>
 
-<div class="content-wrapper">
-    <div id="app_content" class="content">
-
-{block name=content} Domyślna treść zawartości .... {/block}
-
-    </div>
-    {block name=footer}{/block}
-    <div id="footer">
-        <ul class="copyright" class="sticky">
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            <li>Wykonał: Jakub Linnert</li>
-        </ul>
-    </div>
-</div>
-</div>
-</div>
 </body>
 </html>

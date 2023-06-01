@@ -1,11 +1,6 @@
 {extends file="main.html"}
-
-{block name=header}{/block}
-
-{block name=footer}{/block}
 		
 {block name=content}
-
 <!-- Wrapper-->
 <div id="wrapper">
 
@@ -13,11 +8,11 @@
 	<nav id="nav" class="navMenu">
 		<a href="#" class="icon solid fa-home"><span>Home</span></a>
 		<a href="#calculate" class="icon solid fa-envelope"><span>Calculator</span></a>
-		{if $user->role == 'admin'}
+		{if inRole('admin')}
 			<a href="{$conf->action_url}chronionaView" class="icon solid fa-user-secret"><span>Chroniona</span></a>
 		{/if}
 		<a href="{$conf->action_url}logout" class="icon solid fa-fingerprint"><span>Wyloguj</span></a>
-	</nav>
+	</nav>	
 
 	<!-- Main -->
 	<div id="main">
@@ -55,7 +50,7 @@
 						</div>
 						<div class="col-6">
 							<input type="submit" value="Oblicz mnie! :3" />
-							{if $user->role == 'admin'}
+							{if inRole('admin')}
 								<a href="{$conf->app_url}#calculate"><input class="button" type="button" value="Reset x_x"/></a>
 							{/if}
 						</div>
@@ -69,14 +64,16 @@
 				<h3>Wynik:</h3>
 				<div>
 					<ol class="wyn">
-					{foreach $msgs->getWyniki() as $wyn}
+					{foreach $msgs->getWyniki() as $w}
 					{strip}
-						<li>{$wyn}</li>
+						<li>{$w}</li>
 					{/strip}
 					{/foreach}
 					</ol>
 				</div>
 				{/if}
+
+				{include file='wynik.html'}
 
 			</div>
 		</article>

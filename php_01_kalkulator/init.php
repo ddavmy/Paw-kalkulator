@@ -10,6 +10,14 @@ require_once 'core/Messages.class.php';
 $msgs = new core\Messages();
 function &getMessages(){global $msgs; return $msgs;}
 
+require_once 'core/ClassLoader.class.php';
+$cloader = new core\ClassLoader();
+function &getLoader() {global $cloader; return $cloader;}
+
+require_once 'core/Router.class.php';
+$router = new core\Router();
+function &getRouter(): core\Router {global $router; return $router;}
+
 $smarty = null;	
 function &getSmarty(){
 	global $smarty;
@@ -26,13 +34,25 @@ function &getSmarty(){
 	return $smarty;
 }
 
-require_once 'core/ClassLoader.class.php';
-$cloader = new core\ClassLoader();
-function &getLoader() {global $cloader; return $cloader;}
-
-require_once 'core/Router.class.php';
-$router = new core\Router();
-function &getRouter(): core\Router {global $router; return $router;}
+$db = null; //przygotuj Medoo, twórz tylko raz - wtedy kiedy potrzeba
+function &getDB() {
+    global $conf, $db;
+    if (!isset($db)) {
+        require_once 'lib/medoo/Medoo.php';
+        $db = new \Medoo\Medoo([
+            'database_type' => &$conf->db_type,
+            'server' => &$conf->db_server,
+            'database_name' => &$conf->db_name,
+            'username' => &$conf->db_user,
+            'password' => &$conf->db_pass,
+            'charset' => &$conf->db_charset,
+            'port' => &$conf->db_port,
+            'prefix' => &$conf->db_prefix,
+            'option' => &$conf->db_option
+        ]);
+    }
+    return $db;
+}
 
 require_once 'core/functions.php';
 

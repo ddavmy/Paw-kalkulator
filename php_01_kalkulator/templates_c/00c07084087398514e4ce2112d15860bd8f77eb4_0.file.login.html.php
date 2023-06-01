@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-03 20:36:33
-  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulator\app\views\Login.html' */
+/* Smarty version 4.3.1, created on 2023-05-29 13:27:05
+  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulato\app\views\login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6452a9b18c5f35_88624888',
+  'unifunc' => 'content_64748c09c47867_33778159',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2c7218b27a8b652d4eea0e52da24139f18c532b9' => 
+    '00c07084087398514e4ce2112d15860bd8f77eb4' => 
     array (
-      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\views\\Login.html',
-      1 => 1683135226,
+      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulato\\app\\views\\login.html',
+      1 => 1684167925,
       2 => 'file',
     ),
   ),
@@ -22,33 +22,33 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:scripts.html' => 1,
   ),
 ),false)) {
-function content_6452a9b18c5f35_88624888 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64748c09c47867_33778159 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12824885846452a9b18bc4b6_20642830', 'header');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_87476492564748c09c3ec43_49954088', 'header');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17551296776452a9b18bcdc9_52647892', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_183582908564748c09c3f9f6_89386785', 'footer');
 ?>
 
 		
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11176825046452a9b18bd3d5_85031862', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_206959554064748c09c40029_11191721', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.html");
 }
 /* {block 'header'} */
-class Block_12824885846452a9b18bc4b6_20642830 extends Smarty_Internal_Block
+class Block_87476492564748c09c3ec43_49954088 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'header' => 
   array (
-    0 => 'Block_12824885846452a9b18bc4b6_20642830',
+    0 => 'Block_87476492564748c09c3ec43_49954088',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -56,12 +56,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'header'} */
 /* {block 'footer'} */
-class Block_17551296776452a9b18bcdc9_52647892 extends Smarty_Internal_Block
+class Block_183582908564748c09c3f9f6_89386785 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_17551296776452a9b18bcdc9_52647892',
+    0 => 'Block_183582908564748c09c3f9f6_89386785',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -69,12 +69,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_11176825046452a9b18bd3d5_85031862 extends Smarty_Internal_Block
+class Block_206959554064748c09c40029_11191721 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_11176825046452a9b18bd3d5_85031862',
+    0 => 'Block_206959554064748c09c40029_11191721',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -96,12 +96,10 @@ login" method="post">
 				<div>
 					<div class="col">
 						<div class="col-6 col-12-medium">
-                            <input type="text" name="login" autocomplete="off" placeholder="Username" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->login;?>
-"/>
+                            <input type="text" name="login" autocomplete="off" placeholder="Username"/>
                         </div>
                         <div class="col-6 col-12-medium">
-                            <input type="password" name="pass" autocomplete="off" placeholder="Password" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->pass;?>
-"/>
+                            <input type="password" name="pass" autocomplete="off" placeholder="Password"/>
                         </div>
                         <div class="col-6">
                             <input type="submit" value="Zaloguj" />

@@ -3,16 +3,17 @@
 namespace app\controllers;
 
 use app\forms\CalcForm;
-use app\transfer\CalcResult;
-
+use PDOException;
 class CalcCtrl {
 
     private $form;
-    private $result;
+    private $delta;
+    private $pierwPierwszy;
+    private $pierwDrugi;
+    private $records;
 
     public function __construct(){
 		$this->form = new CalcForm();
-		$this->result = new CalcResult();
     }
 
     public function getParams(){
@@ -45,9 +46,14 @@ class CalcCtrl {
         } elseif(!is_numeric($this->form->c)) {
             getMessages()->addError('Trzecia wartość nie jest liczbą!');
         }
-    
+
         return ! getMessages()->isError();
     }
+
+    public function validateEdit() {
+            $this->form->id = getFromRequest('id',true,'Błędne wywołanie aplikacji');
+            return ! getMessages()->isError();
+        }
 
     public function action_calcCompute(){
         
@@ -58,48 +64,111 @@ class CalcCtrl {
             $this->form->a = floatval($this->form->a);
             $this->form->b = floatval($this->form->b);
             $this->form->c = floatval($this->form->c);
+            $this->pierwPierwszy = '-';
+            $this->pierwDrugi = '-';
             getMessages()->addInfo('Parametry poprawne.');
             
-            $this->result->result = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
-            getMessages()->addWynik('Δ = '.$this->result->result);
+            $this->delta = pow($this->form->b, 2) - 4 * $this->form->a * $this->form->c;
+            getMessages()->addWynik('Δ = '.$this->delta);
 
-                if($this->result->result == 0) {
-                    $this->result->result = -($this->form->b) / (2 * $this->form->a);
-                    if($this->result->result == -0) {abs($this->result->result);}
-                    getMessages()->addWynik('x<sub>0</sub> = '.$this->result->result);
+                if($this->delta == 0) {
+                    $this->pierwPierwszy = -($this->form->b) / (2 * $this->form->a);
+                    if($this->pierwPierwszy == -0) {abs($this->pierwPierwszy);}
+                    getMessages()->addWynik('x<sub>0</sub> = '.$this->pierwPierwszy);
                 }
-                else if($this->result->result < 0) {
+                else if($this->delta < 0) {
                     getMessages()->addWynik('Delta ujemna, brak pierwiastków.');
                 }else {
-                    $delta = $this->result->result;
+                    $this->pierwPierwszy = round((-$this->form->b + sqrt($this->delta)) / (2 * $this->form->a), 2);
+                    if($this->pierwPierwszy == -0) {abs($this->pierwPierwszy);}
+                    getMessages()->addWynik('x<sub>1</sub> = '.$this->pierwPierwszy);
 
-                    $this->result->result = round((-$this->form->b + sqrt($delta)) / (2 * $this->form->a), 2);
-                    if($this->result->result == -0) {abs($this->result->result);}
-                    getMessages()->addWynik('x<sub>1</sub> = '.$this->result->result);
-
-                    $this->result->result = round((-$this->form->b - sqrt($delta)) / (2 * $this->form->a), 2);
-                    if($this->result->result == -0) {abs($this->result->result);}
-                    getMessages()->addWynik('x<sub>2</sub> = '.$this->result->result);
+                    $this->pierwDrugi = round((-$this->form->b - sqrt($this->delta)) / (2 * $this->form->a), 2);
+                    if($this->pierwDrugi == -0) {abs($this->pierwDrugi);}
+                    getMessages()->addWynik('x<sub>2</sub> = '.$this->pierwDrugi);
                 }
             
             getMessages()->addInfo('Wykonano obliczenia.');
+
+        }
+        $this->action_wynikSave();
+    }
+
+    public function action_wynikSave(){
+
+		if (!getMessages()->isError()) {
+			try {
+				getDB()->insert("wynik", [
+					"a" => $this->form->a,
+					"b" => $this->form->b,
+					"c" => $this->form->c,
+					"delta" => $this->delta,
+					"pierwPierwszy" => $this->pierwPierwszy,
+					"pierwDrugi" => $this->pierwDrugi
+				]);
+				getMessages()->addInfo('Pomyślnie zapisano rekord');
+
+			} catch (PDOException $e){
+				getMessages()->addError('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
+				if (getConf()->debug) getMessages()->addError($e->getMessage());
+			}
+			
+			$this->action_WynikList();
+
+		} else {
+			$this->action_WynikList();
+		}
+	}
+    
+    public function action_wynikDelete(){
+		if ( $this->validateEdit() ){
+			try{
+				getDB()->delete("wynik",[
+					"idwynik" => $this->form->id
+				]);
+				getMessages()->addInfo('Pomyślnie usunięto rekord');
+			} catch (PDOException $e){
+				getMessages()->addError('Wystąpił błąd podczas usuwania rekordu');
+				if (getConf()->debug) getMessages()->addError($e->getMessage());
+			}
+		}	
+        forwardTo('calcShow');
+	}
+
+    public function action_WynikList(){
+		try{
+			$this->records = getDB()->select("wynik", [
+					"idwynik",
+					"a",
+					"b",
+					"c",
+					"delta",
+                    "pierwPierwszy",
+                    "pierwDrugi"
+				]);
+		} catch (PDOException $e){
+			getMessages()->addError('Wystąpił błąd podczas pobierania rekordów');
+			if (getConf()->debug) getMessages()->addError($e->getMessage());			
         }
         $this->generateView();
-    }
+	}
 
 	public function action_calcShow(){
 		getMessages()->addInfo('Witaj w kalkulatorze');
-		$this->generateView();
+        $this->action_WynikList();
 	}
     
     public function generateView(){
-
+        
 		getSmarty()->assign('user',unserialize($_SESSION['user']));
         
         getSmarty()->assign('page_title','Twój Ulubiony Kalkulator ^-^');
         
         getSmarty()->assign('form',$this->form);
-        getSmarty()->assign('res',$this->result);
+        getSmarty()->assign('del',$this->delta);
+        getSmarty()->assign('pierwPierwszy',$this->pierwPierwszy);
+        getSmarty()->assign('pierwPierwszy',$this->pierwDrugi);
+        getSmarty()->assign('record',$this->records);
         
         getSmarty()->display('index.html');
     }

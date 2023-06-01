@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-28 19:58:02
-  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulator\app\views\templates\scripts.html' */
+/* Smarty version 4.3.1, created on 2023-05-29 13:27:05
+  from 'E:\dev\xampp\htdocs\paw\php_01_kalkulato\app\views\templates\scripts.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6473962a92ab37_42349170',
+  'unifunc' => 'content_64748c09df5028_67349396',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b9d226000aa0fb97a510b2d5cd2e65a47b192f9b' => 
+    'b79871675d47fcbb4939a764c55f1a473817e6fa' => 
     array (
-      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulator\\app\\views\\templates\\scripts.html',
+      0 => 'E:\\dev\\xampp\\htdocs\\paw\\php_01_kalkulato\\app\\views\\templates\\scripts.html',
       1 => 1683135130,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6473962a92ab37_42349170 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64748c09df5028_67349396 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/js/jquery.min.js"><?php echo '</script'; ?>

@@ -78,6 +78,6 @@ class LoginCtrl{
 		
 		getSmarty()->assign('page_title','Twoja wymarzona strona logowania ^_^');
 		getSmarty()->assign('form',$this->form);
-		getSmarty()->display('Login.html');		
+		getSmarty()->display('login.html');		
 	}
 }
